@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>  
+<html>
+<head>
+	<link rel="stylesheet" href="css/base.css"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body> 
+	<script>
+		function loadDoc() {
+		var api = "da09b0473f0488cb8145bb6f8a316597";
+		var CityName = document.getElementById("City").value;
+		var xhttp = new XMLHttpRequest();
+			xhttp.onreadystatechange = function() {
+		if (this.readyState == 4) {
+		var data = JSON.parse(xhttp.responseText);
+		if (data.cod=="404")
+		{
+		alert("City is not recognized.");
+		}
+		
+		var temperature = data.main.temp;
+		document.getElementById("temp").innerHTML = temperature + "°F";
+		
+		var tempmin = data.main.temp_min;
+		document.getElementById("tempMin").innerHTML = tempmin + "°F";
+		
+		var tempmax = data.main.temp_max;
+		document.getElementById("tempMax").innerHTML = tempmax + "°F";
+		
+
+		}
+		};
+		var url = "https://api.openweathermap.org/data/2.5/weather?q=" + CityName + "&appid=" + api + "&units=imperial";
+		xhttp.open("GET", url , true);
+		xhttp.send();
+		}
+	</script>
+	
+
+
+<div class="page">
+	<h1>Weather In Your City</h1>
+	<form>  
+	  <h2>Todays Weather in your city:</h2> 
+	  <input type="text" id="City" align="center" placeholder="Enter city">
+	 
+	  <br><br>
+	  <div class="form">
+	  <input type="button" value="Get Weather" onclick="loadDoc()"> 
+	  </div>
+	  <p id="result"> </p>
+	  <div class="Temperature"><p>Todays Temperature:</p><p id="temp"> </p></div>
+	  <div class="TemperatureMin"><p>Todays Low:</p><p id="tempMin"> </p></div>
+	  <div class="TemperatureMax"><p>Todays High:</p><p id="tempMax"> </p></div>
+	</form>
+
+	<footer>
+		<p> &copy Bradley Hughes 2019</p>
+	</footer>
+	</body>
+</div>
+</html>

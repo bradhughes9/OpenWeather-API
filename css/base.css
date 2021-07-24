@@ -1,0 +1,40 @@
+.page{
+	max-width:100%;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	color: white;
+	min-height: 100%;
+	text-align: center;
+	
+}
+
+p {
+	text-indent: 1em;
+	color: white;
+	font-size: 1.15em;
+	text-align: center;
+}
+html {
+	background-image: url("../bg.jpg");
+}
+input {
+	text-align: center;
+}
+
+a {
+	background-color: yellow;
+     color: #000000;
+     
+}
+
+footer {
+	text-align: center;
+}
+h2, h1 {
+	text-align: center;
+}
+.form {
+	text-align: center;
+}
+input {
+	text-align: center;
+}
